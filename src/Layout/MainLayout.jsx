@@ -40,15 +40,20 @@ export default function MainLayout() {
 
       {/* 🧠 Main Content */}
       <div
-        className={`flex-1 transition-all duration-300 ease-in-out ${
+        className={`flex flex-col flex-1 min-h-screen transition-all duration-300 ease-in-out ${
           isSidebarOpen ? "lg:ml-60" : "ml-0"
         }`}
       >
-        <Navbar
-          toggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)}
-          toggleMobile={() => setIsMobileOpen(!isMobileOpen)}
-        />
-        <main className="p-6">
+        {/* Fixed Navbar */}
+        <div className="sticky top-0 z-30">
+          <Navbar
+            toggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)}
+            toggleMobile={() => setIsMobileOpen(!isMobileOpen)}
+          />
+        </div>
+
+        {/* Scrollable content area */}
+        <main className="flex-1 overflow-y-auto p-6 bg-blue-50">
           <Outlet />
         </main>
       </div>
