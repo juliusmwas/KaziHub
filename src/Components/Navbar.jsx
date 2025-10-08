@@ -13,7 +13,7 @@ export default function Navbar({ toggleSidebar, toggleMobile }) {
           }}
         ><FiSidebar /></button>
 
-        <p className="text-sm font-medium text-gray-500">Good evening, Julius</p>
+        <p className="text-xs font-normal text-gray-500">Good evening, Julius</p>
       </div>
 
       <div className=" px-3 flex items-center text-2xl cursor-pointer text-gray-600 hover:text-blue-500"><FiBell /></div>
