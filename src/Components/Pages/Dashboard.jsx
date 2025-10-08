@@ -1,5 +1,5 @@
 import { FiUsers, FiBarChart2, FiClock, FiTrendingUp } from "react-icons/fi";
-import { GoProjectRoadmap } from "react-icons/go";
+import { GrProjects } from "react-icons/gr";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { LuClock4 } from "react-icons/lu";
 import { FiCalendar, FiBell } from "react-icons/fi";
@@ -19,7 +19,7 @@ export default function Dashboard() {
       {/* Stats Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         {[
-          { title: "Active Projects", value: "0", text: "completed this month",icon: <GoProjectRoadmap /> },
+          { title: "Active Projects", value: "0", text: "completed this month",icon: <GrProjects /> },
           { title: "Task Completed", value: "0",  text: "in the last 7 days", icon: <IoMdCheckmarkCircleOutline /> },
           { title: "Pending Tasks", value: "0", text: "overdue", icon: <LuClock4 /> },
           { title: "Overall Progress", value: "0%", text: "in the last 7 days", icon: <FiTrendingUp /> },
@@ -97,7 +97,7 @@ export default function Dashboard() {
           </div>
           
           <div className="py-8  grid justify-items-center">
-            <GoProjectRoadmap className="text-3xl"/>
+            <GrProjects  className="text-3xl text-gray-500"/>
             <p className="text-xs p-2 font-normal text-gray-500">No active Projects</p>
             <button className="bg-blue-600 text-white flex gap-4 px-4 items-center font-medium text-sm rounded-lg p-2 cursor-pointer hover:bg-blue-500"><span>+</span> Create New Project</button>
           </div>
