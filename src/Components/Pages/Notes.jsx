@@ -6,7 +6,7 @@ export default function Notes () {
         <div>
             <div className="flex items-center justify-between">
                 <div>
-                    <h1 className=" flex items-center  gap-3 text-lg text-blue-600 font-bold lg:text-2xl">Notes</h1>
+                    <h1 className="text-lg text-black font-bold lg:text-2xl">Notes</h1>
                     <p className="text-xs font-normal p-1 text-gray-500">Quick notes for meetings, ideas, and thoughts</p>
                 </div>
                 <button className="bg-blue-600 mt-2 text-white flex gap-4  items-center font-medium text-xs lg:text-sm rounded-lg p-2 cursor-pointer hover:bg-blue-500">+ New Note</button>

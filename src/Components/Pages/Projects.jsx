@@ -19,7 +19,7 @@ export default function Projects () {
             </nav>
 
             <div className="bg-gray-100 mt-3 p-2 lg:p-3 shadow-sm rounded-xl">
-                <h1 className="flex items-center gap-5 justify-center text-lg text-blue-600 font-bold lg:text-2xl"><span><GrProjects /></span>Projects</h1>
+                <h1 className="flex items-center gap-5 justify-center text-lg text-black font-bold lg:text-2xl"><span><GrProjects /></span>Projects</h1>
             </div>
 
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-3 items-center ">

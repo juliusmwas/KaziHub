@@ -1,6 +1,4 @@
 import { CiSearch } from "react-icons/ci";
-import { FiUserPlus } from "react-icons/fi";
-import { GrProjects } from "react-icons/gr";
 import { FiBell } from "react-icons/fi";
 
 
@@ -9,7 +7,7 @@ export default function Reminders () {
           <div>
                     <nav className=" bg-white items-center p-2 shadow-sm rounded-xl ">
                         <div>
-                            <h1 className=" flex items-center  gap-3 text-lg text-blue-600 font-bold lg:text-2xl"><FiBell /> Reminders</h1>
+                            <h1 className=" flex items-center  gap-3 text-lg text-black font-bold lg:text-2xl"><FiBell /> Reminders</h1>
                             <p className="text-xs font-normal text-gray-500">Keep track of your one-off tasks and quick reminders</p>
                         </div>
         
