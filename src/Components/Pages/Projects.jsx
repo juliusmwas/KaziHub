@@ -66,9 +66,7 @@ export default function Projects () {
 
             <div className="group bg-gray-50 border border-gray-300 rounded-xl w-32 flex gap-3 items-center mt-5 p-2 cursor-pointer hover:bg-green-600 hover:text-white">
                 <FiUserPlus className="text-sm font-bold text-gray-500 group-hover:text-white" />
-                <p className="text-sm font-medium text-gray-500 group-hover:text-white">
-                    Invite User
-                </p>
+                <p className="text-sm font-medium text-gray-500 group-hover:text-white">Invite User</p>
             </div>
 
 
