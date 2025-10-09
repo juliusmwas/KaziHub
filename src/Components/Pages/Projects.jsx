@@ -60,7 +60,7 @@ export default function Projects () {
                     <GrProjects className="text-2xl text-gray-500"/>
                     <h1 className="text-lg font-medium  p-1 lg:text-2xl">No projects yet</h1>
                     <p className="text-xs font-normal p-1 text-gray-500">Create your first project to start organizing your goals!</p>
-                    <button className="bg-blue-600 text-white flex gap-4 px-4 items-center font-medium text-xs lg:text-sm rounded-lg p-2 cursor-pointer hover:bg-blue-500">+ Create New Project</button>
+                    <button className="bg-blue-600 mt-2 text-white flex gap-4 px-4 items-center font-medium text-xs lg:text-sm rounded-lg p-2 cursor-pointer hover:bg-blue-500">+ Create New Project</button>
                 </div>    
             </div>
 
