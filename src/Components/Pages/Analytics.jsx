@@ -3,6 +3,8 @@ import { IoBarChartOutline } from "react-icons/io5";
 import { GoProjectRoadmap } from "react-icons/go";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { GiHazardSign } from "react-icons/gi";
+import { LuClock4 } from "react-icons/lu";
+import { FiTrendingUp } from "react-icons/fi";
 
 export default function Analytics () {
     return(
@@ -98,6 +100,51 @@ export default function Analytics () {
                     </div>
                 </div>
             </div>
+
+            <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 mt-4">
+                <div className="bg-white rounded-xl p-4 px-4 shadow-sm">
+                    <div className="flex items-center gap-2 p-2">
+                        <LuClock4 className="text-2xl font-bold  p-1 text-blue-700" />
+                        <h1 className="text-lg lg:text-xl  font-semibold">Recent Activity</h1>
+                    </div>
+                    <div className="grid gap-3 w-full">
+                        <div className="bg-gray-100 rounded-xl px-4 p-2">
+                            <h1 className="text-sm lg:text-sm  font-semibold">Task Completed</h1>
+                            <p className="text-xs font-normal text-gray-500">Sample Projects</p>
+                            <p className="text-xs font-normal text-gray-500">2 hrs ago</p>
+                        </div>
+                        <div className="bg-gray-100 rounded-xl px-4 p-2">
+                            <h1 className="text-sm lg:text-sm  font-semibold">Task Completed</h1>
+                            <p className="text-xs font-normal text-gray-500">Sample Projects</p>
+                            <p className="text-xs font-normal text-gray-500">2 hrs ago</p>
+                        </div>
+                        <div className="bg-gray-100 rounded-xl px-4 p-2">
+                            <h1 className="text-sm lg:text-sm  font-semibold">Task Completed</h1>
+                            <p className="text-xs font-normal text-gray-500">Sample Projects</p>
+                            <p className="text-xs font-normal text-gray-500">2 hrs ago</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="bg-white rounded-xl p-4 px-4 shadow-sm">
+                    <div className="flex items-center gap-2 p-2">
+                        <FiTrendingUp className="text-2xl font-bold  p-1 text-blue-700" />
+                        <h1 className="text-lg lg:text-xl  font-semibold">Productivity Insights</h1>
+                    </div>
+                    <div className="grid gap-3">
+                        <div className="bg-green-100 rounded-xl px-4 p-5">
+                            <h2 className="text-xs lg:text-sm text-green-500  pb-3 font-semibold">Great Progress!</h2>
+                            <p className="text-xs font-normal text-gray-500">You've completed 0% of your tasks. Keep up the momentum!</p>
+                        </div>
+                        <div className="bg-blue-100 rounded-xl px-4 p-5">
+                            <h2 className="text-xs lg:text-sm text-blue-500  pb-3 font-semibold">Tip of the Day</h2>
+                            <p className="text-xs font-normal text-gray-500">Break large tasks into smaller, manageable chunks to maintain momentum.</p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
         </div>
     );
 }
