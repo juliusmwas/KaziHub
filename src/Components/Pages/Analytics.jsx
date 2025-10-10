@@ -56,11 +56,46 @@ export default function Analytics () {
                 
                 <div className="bg-white rounded-xl p-4 px-4 shadow-sm">
                     <div className="flex items-center  justify-between">
-                        <h2  className="text-xl font-bold  p-1 text-gray-800">Overdue Tasks</h2>
+                        <h2  className="text-xs font-bold  p-1 text-gray-800">Overdue Tasks</h2>
                         <GiHazardSign  className="text-xl font-bold  p-1 text-red-700" />
                     </div>
-                    <h1 className="text-lg font-bold  p-1 text-red-700">0</h1>
+                    <h1 className="text-xl font-bold  p-1 text-red-700">0</h1>
                     <p className="text-xs   font-normal p-1 text-gray-500">All tasks on track</p>
+                </div>
+            </div>
+
+            <div className="grid grid-cols-1  gap-4 mt-5 lg:grid-cols-2">
+                <div className="bg-white rounded-xl p-4 px-4 shadow-sm">
+                    <div className="flex items-center gap-2 p-2">
+                        <GoProjectRoadmap className="text-2xl font-bold  p-1 text-blue-600" />
+                        <h1 className="text-lg lg:text-xl  font-semibold">Project Status Overview</h1>
+                    </div>
+
+                    <div className="grid ">
+                        <div className="flex items-center justify-between p-2">
+                           <p className="text-xs   font-medium p-1 ">Active Projects</p>
+                           <p className="text-xs   font-medium p-1 ">0/0</p> 
+                        </div>
+                        <div className="flex items-center justify-between p-2">
+                           <p className="text-xs   font-medium p-1 ">Completed Projects</p>
+                           <p className="text-xs   font-medium p-1 ">0/0</p> 
+                        </div>
+                        <div className="flex items-center justify-between p-2">
+                           <p className="text-xs   font-medium p-1 ">On Hold</p>
+                           <p className="text-xs   font-medium p-1 ">0/0</p> 
+                        </div>
+                                            
+                    </div>
+                </div>
+
+                <div className="bg-white rounded-xl p-4 px-4 shadow-sm">
+                    <div className="flex items-center gap-2 p-2">
+                         <GiHazardSign  className="text-2xl font-bold  p-1 text-red-700" />
+                         <h1 className="text-lg lg:text-xl  font-semibold">High Priority Projects</h1>
+                    </div>
+                    <div  className="grid justify-items-center p-10">
+                        <p className="text-xs font-medium p-1 ">No high priority projects at the moment</p>
+                    </div>
                 </div>
             </div>
         </div>
