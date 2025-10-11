@@ -8,14 +8,14 @@ import { IoBarChartOutline, IoSettingsOutline } from "react-icons/io5";
 
 export default function Sidebar() {
   const links = [
-    { name: "Dashboard", path: "/", icon: <RiDashboardLine /> },
-    { name: "Projects", path: "/projects", icon: <GrProjects /> },
-    { name: "Collaborations", path: "/collaborations", icon: <TbUsers /> },
-    { name: "Calendar", path: "/calender", icon: <FiCalendar /> },
-    { name: "Reminders", path: "/reminders", icon: <FiBell /> },
-    { name: "Notes", path: "/notes", icon: <LuStickyNote /> },
-    { name: "Analytics", path: "/analytics", icon: <IoBarChartOutline /> },
-    { name: "Settings", path: "/settings", icon: <IoSettingsOutline /> },
+    { name: "Dashboard", path: "/app", icon: <RiDashboardLine /> },
+    { name: "Projects", path: "/app/projects", icon: <GrProjects /> },
+    { name: "Collaborations", path: "/app/collaborations", icon: <TbUsers /> },
+    { name: "Calendar", path: "/app/calender", icon: <FiCalendar /> },
+    { name: "Reminders", path: "/app/reminders", icon: <FiBell /> },
+    { name: "Notes", path: "/app/notes", icon: <LuStickyNote /> },
+    { name: "Analytics", path: "/app/analytics", icon: <IoBarChartOutline /> },
+    { name: "Settings", path: "/app/settings", icon: <IoSettingsOutline /> },
   ];
 
   return (
@@ -29,7 +29,7 @@ export default function Sidebar() {
           <li key={name}>
             <NavLink
               to={path}
-              end={path === "/"}
+              end={path === "/app"}
               className={({ isActive }) =>
                 `flex items-center gap-3 px-4 py-2 rounded-lg transition-colors ${
                   isActive
