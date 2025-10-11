@@ -263,6 +263,23 @@ export default function Dashboard() {
                 </div>
               </div>
 
+              <div className="grid gap-3 grid-cols-1 mt-3">
+                <div>
+                  <h1 className="text-sm font-bold text-gray-700 mb-1">Status</h1>
+                  <select
+                    value={form.status}
+                    onChange={(e) => setForm((s) => ({ ...s, status: e.target.value }))}
+                    className="w-full bg-gray-50 border border-gray-300 rounded-xl p-2 text-sm"
+                  >
+                    <option>Planning</option>
+                    <option>Active</option>
+                    <option>On Hold</option>
+                    <option>Completed</option>
+                  </select>
+                </div>
+              </div>
+   
+
               <div className="grid gap-3 grid-cols-2">
                 <div>
                   <h1 className="text-sm font-bold text-gray-700 mb-1">Start Date</h1>
