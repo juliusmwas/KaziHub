@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import MainLayout from "./Layout/MainLayout";
 import Dashboard from "./Components/Pages/Dashboard";
 import Projects from "./Components/Pages/Projects";
@@ -8,11 +8,18 @@ import Reminders from "./Components/Pages/Reminders";
 import Notes from "./Components/Pages/Notes";
 import Analytics from "./Components/Pages/Analytics";
 import Settings from "./Components/Pages/Settings";
+import LandingPage from "./Components/Pages/LandingPage";
+import GetStarted from "./Components/Pages/GetStarted";
 
 export default function App() {
   return (
     <Routes>
-      <Route path="/" element={<MainLayout />}>
+      {/* Landing and Auth pages */}
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/get-started" element={<GetStarted />} />
+
+      {/* Protected Main App */}
+      <Route path="/app" element={<MainLayout />}>
         <Route index element={<Dashboard />} />
         <Route path="projects" element={<Projects />} />
         <Route path="collaborations" element={<Collaborations />} />
@@ -22,6 +29,12 @@ export default function App() {
         <Route path="analytics" element={<Analytics />} />
         <Route path="settings" element={<Settings />} />
       </Route>
+
+      {/* Redirects for old paths */}
+      <Route path="/settings" element={<Navigate to="/app/settings" replace />} />
+      <Route path="/projects" element={<Navigate to="/app/projects" replace />} />
+      <Route path="/dashboard" element={<Navigate to="/app" replace />} />
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 }
