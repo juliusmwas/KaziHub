@@ -10,6 +10,7 @@ import Analytics from "./Components/Pages/Analytics";
 import Settings from "./Components/Pages/Settings";
 import LandingPage from "./Components/Pages/LandingPage";
 import GetStarted from "./Components/Pages/GetStarted";
+import ProjectDetails from "./Components/ProjectDetails"; 
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
       <Route path="/app" element={<MainLayout />}>
         <Route index element={<Dashboard />} />
         <Route path="projects" element={<Projects />} />
+        <Route path="projects/:id" element={<ProjectDetails />} /> 
         <Route path="collaborations" element={<Collaborations />} />
         <Route path="calender" element={<Calender />} />
         <Route path="reminders" element={<Reminders />} />
@@ -34,6 +36,7 @@ export default function App() {
       <Route path="/settings" element={<Navigate to="/app/settings" replace />} />
       <Route path="/projects" element={<Navigate to="/app/projects" replace />} />
       <Route path="/dashboard" element={<Navigate to="/app" replace />} />
+
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );

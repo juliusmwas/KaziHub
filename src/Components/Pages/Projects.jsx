@@ -3,7 +3,7 @@ import { GrProjects } from "react-icons/gr";
 import { CiSearch } from "react-icons/ci";
 import { FiUserPlus } from "react-icons/fi";
 import ProjectColorPicker from "../ProjectColorPicker";
-import { supabase } from "../supabaseClient"; // make sure you have this configured
+import { supabase } from "../supabaseClient"; 
 import { Link } from "react-router-dom";
 
 export default function Projects() {
@@ -157,7 +157,7 @@ export default function Projects() {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-5 w-full">
             {projects.map((p) => (
-              <Link key={p.id} to={`/projects/${p.id}`}>
+              <Link key={p.id} to={`/app/projects/${p.id}`}>
                 <div
                     className="bg-white shadow-sm rounded-xl p-4 border border-gray-200 hover:shadow-md transition cursor-pointer"
                     style={{ borderLeft: `6px solid ${p.color}` }}
