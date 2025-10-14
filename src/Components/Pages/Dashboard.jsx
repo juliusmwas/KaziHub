@@ -7,6 +7,9 @@ import { IoBarChartOutline } from "react-icons/io5";
 import { FaArrowRight } from "react-icons/fa6";
 import ProjectColorPicker from "../ProjectColorPicker";
 import { supabase } from "../supabaseClient";
+import CompleteProfileOverlay from "../CompleteProfileOverlay";
+
+
 
 export default function Dashboard() {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,6 +24,38 @@ export default function Dashboard() {
     endDate: "",
     color: "#60a5fa",
   });
+
+  const [showProfileOverlay, setShowProfileOverlay] = useState(false);
+  const [user, setUser] = useState(null);
+    useEffect(() => {
+    const checkProfileCompletion = async () => {
+      const { data: userData } = await supabase.auth.getUser();
+      const currentUser = userData?.user;
+      if (!currentUser) return;
+
+      setUser(currentUser);
+
+      // Check if the profile is marked as completed
+      const { data, error } = await supabase
+        .from("profiles")
+        .select("completed")
+        .eq("id", currentUser.id)
+        .single();
+
+      if (error) console.error("Profile check error:", error);
+
+      // If no data or profile not completed, show overlay
+      if (!data || !data.completed) {
+        setShowProfileOverlay(true);
+      }
+    };
+
+    checkProfileCompletion();
+  }, []);
+
+
+
+
 
   // Fetch projects on mount
   useEffect(() => {
@@ -302,6 +337,16 @@ export default function Dashboard() {
           </div>
         </div>
       )}
+
+     {showProfileOverlay && user && (
+      <CompleteProfileOverlay
+        user={user}
+        onComplete={() => setShowProfileOverlay(false)}
+      />
+    )}
+
+
+
     </div>
   );
 }

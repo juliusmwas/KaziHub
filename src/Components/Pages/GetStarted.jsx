@@ -1,23 +1,53 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { supabase } from "../supabaseClient"; // import your supabase client
 
 export default function GetStarted() {
   const navigate = useNavigate();
-  const [mode, setMode] = useState("signin"); // 'signin' or 'signup'
+  const [mode, setMode] = useState("signin");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // temporary fake auth
-    navigate("/app");
+    setLoading(true);
+    setError("");
+
+    try {
+      if (mode === "signup") {
+        const { data, error } = await supabase.auth.signUp({
+          email,
+          password,
+        });
+        if (error) throw error;
+
+        // Create profile record
+        await supabase.from("profiles").insert([{ id: data.user.id }]);
+        navigate("/app");
+      } else {
+        const { error } = await supabase.auth.signInWithPassword({
+          email,
+          password,
+        });
+        if (error) throw error;
+
+        navigate("/app");
+      }
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
       <div className="bg-white rounded-2xl shadow-lg w-full max-w-md p-3">
-        {/* Logo + Header */}
         <div className="text-center mb-6">
           <div className="flex gap-3 justify-center items-center">
-            <img src="/Logo.png" alt="Logo" className="h-10 w-10 lg:h-14 lg:w-14 " />
+            <img src="/Logo.png" alt="Logo" className="h-10 w-10 lg:h-14 lg:w-14" />
             <h1 className="text-sm lg:text-2xl font-bold">KaziHub</h1>
           </div>
           <p className="text-gray-500 text-xs mt-1">
@@ -25,12 +55,10 @@ export default function GetStarted() {
           </p>
         </div>
 
-        {/* Page Title */}
-        <h2 className="text-lg lg:text-2xl font-bold  text-center mb-4">
+        <h2 className="text-lg lg:text-2xl font-bold text-center mb-4">
           Get Started
         </h2>
 
-        {/* Segmented Sign In / Sign Up */}
         <div className="flex justify-center mb-6 bg-gray-100 rounded-xl p-1">
           <button
             onClick={() => setMode("signin")}
@@ -54,7 +82,6 @@ export default function GetStarted() {
           </button>
         </div>
 
-        {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-2">
           <div>
             <label className="block text-xs lg:text-sm font-medium text-gray-700">
@@ -62,8 +89,10 @@ export default function GetStarted() {
             </label>
             <input
               type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full  bg-gray-100 rounded-xl p-2.5 mt-1 text-xs lg:text-sm focus:ring-2 focus:ring-green-500 outline-none"
+              className="w-full bg-gray-100 rounded-xl p-2.5 mt-1 text-xs lg:text-sm focus:ring-2 focus:ring-green-500 outline-none"
               placeholder="Enter your email"
             />
           </div>
@@ -74,26 +103,31 @@ export default function GetStarted() {
             </label>
             <input
               type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               required
-              className="w-full  bg-gray-100 rounded-xl p-2.5 mt-1 text-sm focus:ring-2 focus:ring-blue-500 outline-none"
+              className="w-full bg-gray-100 rounded-xl p-2.5 mt-1 text-sm focus:ring-2 focus:ring-blue-500 outline-none"
               placeholder="Create a password (min. 6 characters)"
             />
           </div>
 
+          {error && <p className="text-red-500 text-xs text-center">{error}</p>}
+
           <button
             type="submit"
+            disabled={loading}
             className="w-full bg-blue-600 text-xs lg:text-sm text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition"
           >
-            {mode === "signin" ? "Sign In" : "Create Account"}
+            {loading
+              ? "Please wait..."
+              : mode === "signin"
+              ? "Sign In"
+              : "Create Account"}
           </button>
         </form>
 
-        {/* Back to Home */}
         <div className="mt-6 text-center">
-          <a
-            href="/"
-            className="text-sm text-blue-600 font-medium hover:underline"
-          >
+          <a href="/" className="text-sm text-blue-600 font-medium hover:underline">
             ← Back to Home
           </a>
         </div>
